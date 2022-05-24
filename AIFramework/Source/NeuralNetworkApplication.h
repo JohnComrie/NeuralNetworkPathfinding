@@ -77,6 +77,14 @@ namespace AIFramework
 			goal.setFillColor(sf::Color::Green);
 			goal.setPosition(sf::Vector2f(windowWidth - 50.0f, 440.0f));
 		}
-		~NeuralNetworkApplication() {}
+		~NeuralNetworkApplication() 
+		{
+			for (auto agent : agents)
+			{
+				delete agent;
+			}
+			agents.clear();
+			delete bestAgent;
+		}
 	};
 }
